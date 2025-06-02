@@ -1,0 +1,94 @@
+[
+  {
+    "id": 1,
+    "name": "Очки Hawk",
+    "price": 3000,
+    "sale": "sale",
+    "hm": 0,
+    "description": "Hawk",
+    "gender": "unisex",
+    "type": "sunscreen",
+    "colection": "summer",
+    "imgSize": "/examples/size.jpg",
+    "dopImgs": [
+      {
+        "img": "/examples/glasses 1.jpg"
+      },
+      {
+        "img": "/examples/glasses 2.webp"
+      },
+      {
+        "img": "/examples/glasses 3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Очки Osse",
+    "price": 4000,
+    "sale": "none",
+    "hm": 11,
+    "description": "Osse",
+    "gender": "female",
+    "type": "optik",
+    "colection": "winter",
+    "imgSize": "/examples/size.jpg",
+    "dopImgs": [
+      {
+        "img": "/examples/glasses 2.webp"
+      },
+      {
+        "img": "/examples/glasses 1.jpg"
+      },
+      {
+        "img": "/examples/glasses 3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Очки Mustang",
+    "price": 2000,
+    "hm": 12,
+    "sale": "sale",
+    "gender": "male",
+    "type": "optik",
+    "colection": "autumn",
+    "description": "Mustang",
+    "imgSize": "/examples/size.jpg",
+    "dopImgs": [
+      {
+        "img": "/examples/glasses 3.jpg"
+      },
+      {
+        "img": "/examples/glasses 2.webp"
+      },
+      {
+        "img": "/examples/glasses 1.jpg"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Очки Diverso",
+    "price": 5000,
+    "sale": "none",
+    "gender": "kid",
+    "hm": 8,
+    "type": "sunscreen",
+    "colection": "spring",
+    "description": "Diverso",
+    "imgSize": "/examples/size.jpg",
+    "dopImgs": [
+      {
+        "img": "/examples/glasses 4.webp"
+      },
+      {
+        "img": "/examples/glasses 2.webp"
+      },
+      {
+        "img": "/examples/glasses 1.jpg"
+      }
+    ]
+  }
+]

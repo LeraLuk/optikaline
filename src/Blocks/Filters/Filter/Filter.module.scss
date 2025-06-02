@@ -1,0 +1,86 @@
+.filter {
+  box-sizing: border-box;
+  width: 275px;
+  padding: 15px;
+
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  & h2 {
+    margin-top: 0;
+  }
+  & .inputnone {
+    display: none;
+  }
+  & hr {
+    border: 1px solid var(--border);
+  }
+
+  & .checkbox {
+    width: 17px;
+    height: 17px;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+  }
+  & .inputnone:checked ~ .checkbox {
+    background-color: var(--red);
+    border: 1px solid black;
+    border-radius: 5px;
+    background-image: url(/img/yes.svg);
+    background-size: cover;
+  }
+  & label {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    & p {
+      margin: 7px 0;
+    }
+  }
+  & .label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    align-items: start;
+
+    & select {
+      width: 100%;
+      height: 25px;
+      background-color: white;
+      border: 1px solid var(--border);
+      font-family: "Comfortaa", sans-serif;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    & p {
+      margin: 5px 0;
+    }
+  }
+  & .priceRange {
+    display: flex;
+    gap: 5px;
+    & input {
+      width: 100%;
+      height: 30px;
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: "Comfortaa", sans-serif;
+    }
+
+    & input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    & input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}

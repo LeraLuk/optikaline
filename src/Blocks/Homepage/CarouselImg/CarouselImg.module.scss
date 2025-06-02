@@ -1,0 +1,11 @@
+.carouselimg {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  & hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #b7b7b788;
+    margin-top: 50px;
+  }
+}

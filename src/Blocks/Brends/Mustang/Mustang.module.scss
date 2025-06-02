@@ -1,0 +1,61 @@
+.mustang {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    & > div {
+      width: 47%;
+
+      & h2 {
+        font-size: 40px;
+      }
+      & p {
+        margin-bottom: 50px;
+        line-height: 25px;
+      }
+      & > div {
+        display: flex;
+        justify-content: space-between;
+        & .button {
+          width: 40%;
+          height: fit-content;
+          padding: 15px;
+          background-color: white;
+          border: 1px solid #b7b7b788;
+          border-radius: 10px;
+          font-family: "Comfortaa", sans-serif;
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          & * {
+            color: black;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  & .img {
+    width: 47%;
+    height: 80vh;
+    border-radius: 20px;
+    border: 7px double #b7b7b7;
+    background-image: url(/examples/Mustang_2.webp);
+    background-position-y: -200px;
+    background-size: cover;
+  }
+  & .video {
+    width: 80%;
+    margin: 50px auto;
+    background-color: white;
+    border: 1px solid #b7b7b7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    height: 45vh;
+  }
+}

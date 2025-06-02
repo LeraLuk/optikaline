@@ -1,0 +1,29 @@
+.img1 {
+  max-width: 650px;
+  max-height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & img {
+    max-width: 650px;
+    max-height: 450px;
+  }
+}
+
+.imgSmall {
+  max-width: 650px;
+  .slider2 {
+    max-width: 600px;
+    margin: 0 auto;
+    .img2 {
+      max-width: 160x;
+      max-height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & img {
+        width: 100%;
+      }
+    }
+  }
+}

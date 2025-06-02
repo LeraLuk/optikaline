@@ -1,0 +1,48 @@
+.login {
+  margin-bottom: 20px;
+  & > form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: fit-content;
+    height: fit-content;
+    & > div {
+      height: fit-content;
+    }
+  }
+  & .phone {
+    box-sizing: border-box;
+    width: fit-content;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    font-size: 16px;
+  }
+  & .password {
+    box-sizing: border-box;
+    width: fit-content;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    font-size: 16px;
+  }
+  & label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+  }
+  & button {
+    box-sizing: border-box;
+    width: fit-content;
+    padding: 10px 30px;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    font-size: 16px;
+  }
+}
