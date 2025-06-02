@@ -39,7 +39,10 @@ function Bascket() {
                   />
                 )}
               </td>
-              <td>{item.price * item.quantity}₽</td>
+              <td>
+                {/* {item.price * item.quantity} */}
+                {item.hm === 0 ? "0" : item.price * item.quantity}
+              </td>
               <td>
                 <button onClick={() => removeItem(item.id)}>Удалить</button>
               </td>

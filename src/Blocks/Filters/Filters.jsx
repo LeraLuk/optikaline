@@ -20,6 +20,10 @@ function Filters() {
     unisex: false,
     sunscreen: false,
     optik: false,
+    summer: false,
+    winter: false,
+    spring: false,
+    autumn: false,
   });
   const [products, setProducts] = useState([]);
   const [sortOrder, setSortOrder] = useState("none");

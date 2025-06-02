@@ -5,7 +5,7 @@ import bascket from "/img/bascket.svg";
 
 function Card({ product }) {
   const navigate = useNavigate();
-  const { addToCart, updateQuantity, items } = useCart();
+  const { addToCart, updateQuantity, items, removeItem } = useCart();
   const cartItem = items.find((item) => item.id === product.id);
   const hasInCart = !!cartItem;
   const quantity = cartItem ? cartItem.quantity : 0;
@@ -31,13 +31,17 @@ function Card({ product }) {
 
   const handleDecrease = () => {
     if (product.hm === 0 && hasInCart) {
-      // взять "под заказ" — можно убрать
-      updateQuantity(product.id, 0);
+      // Удаляем товар под заказ
+      removeItem(product.id);
     } else if (quantity > 1) {
       updateQuantity(product.id, quantity - 1);
     } else if (quantity === 1) {
-      updateQuantity(product.id, 0); // убрать из корзины
+      // при 1 и нажатию "-" — удаляем товар
+      removeItem(product.id);
     }
+  };
+  const handleRemove = () => {
+    removeItem(product.id);
   };
 
   const handleClickImageOrTitle = () => {
@@ -56,30 +60,23 @@ function Card({ product }) {
           <img src={bascket} alt="" />
         </button>
       ) : product.hm === 0 ? (
-        // для "Под заказ": показывать "под заказ" и кнопку 'X' для удаления
+        // для "Под заказ" — показывать "под заказ" и кнопку "Убрать"
         <div className={style.podOrderContainer}>
           <p>Под заказ</p>
-          <button
-            className={style.remove}
-            onClick={() => updateQuantity(product.id, 0)}
-          >
+          <button className={style.remove} onClick={handleRemove}>
             Убрать
           </button>
         </div>
       ) : (
-        // для товаров с hm>0: отображаем + / - и количество
+        // для товаров с hm>0: + / - и количество
         <div className={style.countControl}>
-          {quantity > 0 && (
-            <>
-              <div className={style.remove} onClick={handleDecrease}>
-                -
-              </div>
-              <div className={style.quantity}>{quantity}</div>
-              <div className={style.add} onClick={handleIncrease}>
-                +
-              </div>
-            </>
-          )}
+          <div className={style.remove} onClick={handleDecrease}>
+            -
+          </div>
+          <div className={style.quantity}>{quantity}</div>
+          <div className={style.add} onClick={handleIncrease}>
+            +
+          </div>
         </div>
       )}
     </div>

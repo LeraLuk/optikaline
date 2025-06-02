@@ -12,6 +12,7 @@ function Cards({ filters, sortOrder, priceFilter, products }) {
     const sale = product.sale.toLowerCase();
     const gender = product.gender.toLowerCase();
     const type = product.type.toLowerCase();
+    const colection = product.colection.toLowerCase();
 
     // активные фильтры
     const activeFilters = Object.keys(filters).filter((key) => filters[key]);
@@ -24,7 +25,8 @@ function Cards({ filters, sortOrder, priceFilter, products }) {
           desc.includes(filterKey) ||
           sale.includes(filterKey) ||
           gender.includes(filterKey) ||
-          type.includes(filterKey)
+          type.includes(filterKey) ||
+          colection.includes(filterKey)
       );
 
     return matchesFilter && withinPriceRange;

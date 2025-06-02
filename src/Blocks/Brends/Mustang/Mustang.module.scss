@@ -22,7 +22,7 @@
           width: 40%;
           height: fit-content;
           padding: 15px;
-          background-color: white;
+          background-color: var(--white);
           border: 1px solid #b7b7b788;
           border-radius: 10px;
           font-family: "Comfortaa", sans-serif;
@@ -50,7 +50,7 @@
   & .video {
     width: 80%;
     margin: 50px auto;
-    background-color: white;
+    background-color: var(--white);
     border: 1px solid #b7b7b7;
     display: flex;
     justify-content: center;

@@ -183,6 +183,51 @@ const Filter = ({
           <p>Оптика</p> <div className={style.checkbox}></div>
         </label>
       </div>
+      <hr />
+      <h3>Коллекция</h3>
+      <div className={style.type}>
+        <label>
+          <input
+            type="checkbox"
+            name="winter"
+            checked={filters.winter}
+            onChange={handleChange}
+            className={style.inputnone}
+          />
+          <p>Зима</p>
+          <div className={style.checkbox}></div>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="spring"
+            checked={filters.spring}
+            onChange={handleChange}
+            className={style.inputnone}
+          />
+          <p>Весна</p> <div className={style.checkbox}></div>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="summer"
+            checked={filters.summer}
+            onChange={handleChange}
+            className={style.inputnone}
+          />
+          <p>Лето</p> <div className={style.checkbox}></div>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="autumn"
+            checked={filters.autumn}
+            onChange={handleChange}
+            className={style.inputnone}
+          />
+          <p>Осень</p> <div className={style.checkbox}></div>
+        </label>
+      </div>
     </div>
   );
 };
