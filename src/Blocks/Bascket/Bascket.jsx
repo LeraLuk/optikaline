@@ -6,14 +6,13 @@ function Bascket() {
   return (
     <section className={style.bascket}>
       <h2>Корзина</h2>
-      <table>
+      <table cellSpacing={2} cellPadding={7}>
         <thead>
           <tr>
             <th>Товар</th>
             <th>Цена</th>
             <th>Кол-во</th>
             <th>Общая</th>
-            <th>Действие</th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +42,7 @@ function Bascket() {
                 {/* {item.price * item.quantity} */}
                 {item.hm === 0 ? "0" : item.price * item.quantity}
               </td>
-              <td>
+              <td className={style.delite}>
                 <button onClick={() => removeItem(item.id)}>Удалить</button>
               </td>
             </tr>
@@ -52,10 +51,11 @@ function Bascket() {
         <tfoot>
           <tr>
             <td colSpan="3">ИТОГО</td>
-            <td colSpan="2">{totalSum()}₽</td>
+            <td colSpan="1">{totalSum()}₽</td>
           </tr>
         </tfoot>
       </table>
+      <button className={style.order}>Оформить заказ</button>
     </section>
   );
 }

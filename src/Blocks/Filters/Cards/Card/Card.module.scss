@@ -2,7 +2,7 @@
   box-sizing: border-box;
   width: 280px;
   padding: 15px;
-  background-color: var(--white);
+  background-color: var(--base);
   border: 1px solid var(--border);
   border-radius: 20px;
   min-height: 360px;
@@ -28,7 +28,7 @@
     height: 40px;
     border: 1px solid var(--border);
     border-radius: 100%;
-    background-color: var(--white);
+    background-color: var(--base);
     align-self: flex-end;
     margin-right: 20px;
   }

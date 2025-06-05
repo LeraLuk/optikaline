@@ -5,49 +5,76 @@ const CartContext = createContext();
 // eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => useContext(CartContext);
 
-export const CartProvider = ({ children }) => {
-  // Загружаем корзину из localStorage или создаем пустую
-  const [items, setItems] = useState(() => {
-    const stored = localStorage.getItem("cart");
-    return stored ? JSON.parse(stored) : [];
+export const CartProvider = ({ children, user }) => {
+  const [cartByUser, setCartByUser] = useState(() => {
+    try {
+      const stored = localStorage.getItem("cart_byUser");
+      return stored ? JSON.parse(stored) : {};
+    } catch (e) {
+      console.error("Ошибка парсинга cart_byUser", e);
+      return {};
+    }
   });
 
-  useEffect(() => {
-    // сохраняем при изменении
-    localStorage.setItem("cart", JSON.stringify(items));
-  }, [items]);
+  // Убираем начальный useState для items, он будет устанавливаться через useEffect
+  const [items, setItems] = useState([]);
 
-  const addToCart = (product, quantity = 1) => {
-    setItems((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
-      if (existing) {
-        // добавляем, не превышая hm
-        const newQty = Math.min(
-          existing.quantity + quantity,
-          product.hm || Infinity
-        );
-        return prev.map((item) =>
-          item.id === product.id ? { ...item, quantity: newQty } : item
-        );
-      } else {
-        return [...prev, { ...product, quantity }];
-      }
+  // Когда `user` или `cartByUser` меняется — обновляем `items`
+  useEffect(() => {
+    if (user && user.id && cartByUser[user.id]) {
+      setItems(cartByUser[user.id].items);
+    } else {
+      setItems([]);
+    }
+  }, [user, cartByUser]);
+
+  const saveUserCart = (userId, newItems) => {
+    setCartByUser((prev) => {
+      const newCart = { ...prev, [userId]: { items: newItems } };
+      localStorage.setItem("cart_byUser", JSON.stringify(newCart));
+      return newCart;
     });
   };
 
+  // Внутренние функции (add, update, remove)
+  const addToCart = (product, quantity = 1) => {
+    const index = items.findIndex((item) => item.id === product.id);
+    let newItems;
+    if (index !== -1) {
+      newItems = [...items];
+      newItems[index].quantity = Math.min(
+        newItems[index].quantity + quantity,
+        product.hm || Infinity
+      );
+    } else {
+      newItems = [...items, { ...product, quantity }];
+    }
+    setItems(newItems);
+    if (user && user.id) {
+      saveUserCart(user.id, newItems);
+    }
+  };
+
   const updateQuantity = (id, qty) => {
-    setItems((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, quantity: qty } : item))
+    const newItems = items.map((item) =>
+      item.id === id ? { ...item, quantity: qty } : item
     );
+    setItems(newItems);
+    if (user && user.id) {
+      saveUserCart(user.id, newItems);
+    }
   };
 
   const removeItem = (id) => {
-    setItems((prev) => prev.filter((item) => item.id !== id));
+    const newItems = items.filter((item) => item.id !== id);
+    setItems(newItems);
+    if (user && user.id) {
+      saveUserCart(user.id, newItems);
+    }
   };
 
-  const totalSum = () => {
-    return items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  };
+  const totalSum = () =>
+    items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <CartContext.Provider

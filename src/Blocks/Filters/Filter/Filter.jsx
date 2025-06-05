@@ -128,8 +128,8 @@ const Filter = ({
         <label>
           <input
             type="checkbox"
-            name="female"
-            checked={filters.female}
+            name="woman"
+            checked={filters.woman}
             onChange={handleChange}
             className={style.inputnone}
           />
@@ -214,6 +214,7 @@ const Filter = ({
             checked={filters.summer}
             onChange={handleChange}
             className={style.inputnone}
+            id="summer"
           />
           <p>Лето</p> <div className={style.checkbox}></div>
         </label>

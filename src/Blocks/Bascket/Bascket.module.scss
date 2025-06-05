@@ -2,4 +2,30 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+
+  & table {
+    & th {
+      background-color: #cfcfcf;
+    }
+    & td {
+      background-color: #cfcfcf;
+    }
+    & .delite {
+      background-color: var(--base);
+      & button {
+        width: fit-content;
+        height: fit-content;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background-color: var(--base);
+        align-self: flex-end;
+        margin: auto;
+        padding: 10px;
+      }
+    }
+  }
+
+  & thead {
+    width: fit-content;
+  }
 }

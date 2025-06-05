@@ -136,7 +136,6 @@ function PersonAcc({ user, setUser, onLogout }) {
           <div>
             <div>
               <label>Телефон</label>
-              {/* <input name="phone" value={formData.phone} /> */}
               <Controller
                 name="phone"
                 control={control}

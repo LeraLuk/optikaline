@@ -12,6 +12,9 @@ import Account from "./Blocks/Account/Account.jsx";
 import ProtectedFilters from "./utils/ProtectedFilters.jsx";
 import Bascket from "./Blocks/Bascket/Bascket.jsx";
 
+const userStr = localStorage.getItem("currentUser");
+const user = userStr ? JSON.parse(userStr) : null;
+
 const router = createBrowserRouter([
   {
     path: "",
@@ -64,7 +67,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <CartProvider>
+    <CartProvider user={user}>
       <RouterProvider router={router} />
     </CartProvider>
   </StrictMode>
